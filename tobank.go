@@ -1,9 +1,6 @@
 package tobibank
 
-
-type Response struct {
-	Balance int
-}
+import "github.com/Oloruntobi1/payload"
 
 type TobiBank struct {
 	ApiKey string
@@ -17,7 +14,7 @@ func(w *TobiBank) Create() string {
 	return "Created by Wallet africa"
 }
 
-func(m *TobiBank) Payout() Response {
-	return Response{}
+func(m *TobiBank) Payout() payload.WalletPayoutResponse{
+	return payload.WalletPayoutResponse{}
 }
 
