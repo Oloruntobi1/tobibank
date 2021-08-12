@@ -1,4 +1,4 @@
-package TobiBank
+package tobibank
 
 
 type Response struct {
