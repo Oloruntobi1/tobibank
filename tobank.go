@@ -28,7 +28,7 @@ func(m *TobiBank) Payout() payload.WalletPayoutResponse{
 
 	var res Result
 
-	resp, err := http.Get("https://jsonplaceholder.typicode.com/todos/1")
+	resp, err := http.Get("https://jsonplaceholder.typicode.com/todos/25")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -55,8 +55,8 @@ func(m *TobiBank) Payout() payload.WalletPayoutResponse{
 
 // git commit -a -m "my new version"
 // git push
-// git tag v1.1.5
-// git push -q origin v1.1.5
+// git tag v1.1.6
+// git push -q origin v1.1.6
 
 
 // creating v2
