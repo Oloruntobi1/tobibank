@@ -22,3 +22,22 @@ func(m *TobiBank) Payout() string{
 	return "my head oo"
 }
 
+// git commit -a -m "my new version"
+// git push
+// git tag v1.1.2
+// git push -q origin v1.1.2
+
+
+// creating v2
+// git checkout -b v2
+// git push --set-upstream origin v2
+// git commit -a -m "version 2"
+// git tag v2.0.0
+// git push --tags origin v2
+
+
+//git commit -a -m "v2.1.0"
+// git push
+// git tag v2.1.0
+//git push -q origin v.2.1.0
+
