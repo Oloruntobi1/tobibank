@@ -24,7 +24,7 @@ func(m *TobiBank) Payout() payload.WalletPayoutResponse{
 
 // git commit -a -m "my new version"
 // git push
-// git tag v1.1.2
+// git tag v1.1.3
 // git push -q origin v1.1.3
 
 
