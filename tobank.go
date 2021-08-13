@@ -15,7 +15,11 @@ func(w *TobiBank) Create() string {
 }
 
 func(m *TobiBank) Payout() payload.WalletPayoutResponse{
-	return payload.WalletPayoutResponse{}
+
+	val := 5 / 2
+	return payload.WalletPayoutResponse{
+		Balance: val,
+	}
 }
 
 // func(m *TobiBank) Payout() string{
@@ -24,8 +28,8 @@ func(m *TobiBank) Payout() payload.WalletPayoutResponse{
 
 // git commit -a -m "my new version"
 // git push
-// git tag v1.1.3
-// git push -q origin v1.1.3
+// git tag v1.1.4
+// git push -q origin v1.1.4
 
 
 // creating v2
