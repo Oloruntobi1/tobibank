@@ -1,6 +1,6 @@
 package tobibank
 
-//import "github.com/Oloruntobi1/payload"
+import "github.com/Oloruntobi1/payload"
 
 type TobiBank struct {
 	ApiKey string
@@ -14,18 +14,18 @@ func(w *TobiBank) Create() string {
 	return "Created by Wallet africa"
 }
 
-// func(m *TobiBank) Payout() payload.WalletPayoutResponse{
-// 	return payload.WalletPayoutResponse{}
-// }
-
-func(m *TobiBank) Payout() string{
-	return "my head oo"
+func(m *TobiBank) Payout() payload.WalletPayoutResponse{
+	return payload.WalletPayoutResponse{}
 }
+
+// func(m *TobiBank) Payout() string{
+// 	return "my head oo"
+// }
 
 // git commit -a -m "my new version"
 // git push
 // git tag v1.1.2
-// git push -q origin v1.1.2
+// git push -q origin v1.1.3
 
 
 // creating v2
