@@ -1,6 +1,12 @@
 package tobibank
 
-import "github.com/Oloruntobi1/payload"
+import (
+	"github.com/Oloruntobi1/payload"
+	"log"
+	"net/http"
+	"encoding/json"
+	"io/ioutil"
+)
 
 type TobiBank struct {
 	ApiKey string
@@ -14,11 +20,32 @@ func(w *TobiBank) Create() string {
 	return "Created by Wallet africa"
 }
 
+type Result struct {
+	UserId int `json:"userId"`
+}
+
 func(m *TobiBank) Payout() payload.WalletPayoutResponse{
 
-	val := 5 / 2
+	var res Result
+
+	resp, err := http.Get("https://jsonplaceholder.typicode.com/todos/1")
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	err = json.Unmarshal(body, &res)
+
+	if err != nil {
+		log.Fatalln(err)
+	}
+
 	return payload.WalletPayoutResponse{
-		Balance: val,
+		Balance: res.UserId,
 	}
 }
 
@@ -28,8 +55,8 @@ func(m *TobiBank) Payout() payload.WalletPayoutResponse{
 
 // git commit -a -m "my new version"
 // git push
-// git tag v1.1.4
-// git push -q origin v1.1.4
+// git tag v1.1.5
+// git push -q origin v1.1.5
 
 
 // creating v2
