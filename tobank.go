@@ -3,7 +3,7 @@ package tobibank
 
 import (
 	"encoding/json"
-	"fmt"
+	//"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -28,7 +28,7 @@ type Result struct {
 }
 
 
-func (m *TobiBank)GetBanks() {
+func (m *TobiBank)GetBanks() payload.BanksResponse {
 var res payload.BanksResponse
 
 	resp, err := http.Get("https://sandbox.monnify.com/api/v1/sdk/transactions/banks")
@@ -47,7 +47,7 @@ var res payload.BanksResponse
 		log.Fatalln(err)
 	}
 
-	fmt.Print(res)
+	return res
 }
 
 func(m *TobiBank) Payout() payload.WalletPayoutResponse{
@@ -86,8 +86,8 @@ func(m *TobiBank) Payout() payload.WalletPayoutResponse{
 
 // git commit -a -m "my new version"
 // git push
-// git tag v1.1.8
-// git push -q origin v1.1.8
+// git tag v1.1.9
+// git push -q origin v1.1.9
 
 
 // creating v2
