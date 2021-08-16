@@ -1,11 +1,14 @@
-package tobibank
+package main
+//package tobibank
 
 import (
-	"github.com/Oloruntobi1/payload"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
-	"encoding/json"
-	"io/ioutil"
+
+	"github.com/Oloruntobi1/payload"
 )
 
 type TobiBank struct {
@@ -22,6 +25,29 @@ func(w *TobiBank) Create() string {
 
 type Result struct {
 	UserId int `json:"userId"`
+}
+
+
+func (m *TobiBank)GetBanks() {
+var res payload.BanksResponse
+
+	resp, err := http.Get("https://sandbox.monnify.com/api/v1/sdk/transactions/banks")
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	err = json.Unmarshal(body, &res)
+
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Print(res)
 }
 
 func(m *TobiBank) Payout() payload.WalletPayoutResponse{
@@ -49,14 +75,19 @@ func(m *TobiBank) Payout() payload.WalletPayoutResponse{
 	}
 }
 
+
+func main() {
+	m := &TobiBank{}
+	m.GetBanks()
+}
 // func(m *TobiBank) Payout() string{
 // 	return "my head oo"
 // }
 
 // git commit -a -m "my new version"
 // git push
-// git tag v1.1.6
-// git push -q origin v1.1.6
+// git tag v1.1.7
+// git push -q origin v1.1.7
 
 
 // creating v2
