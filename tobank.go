@@ -1,5 +1,5 @@
-package main
-//package tobibank
+// package main
+package tobibank
 
 import (
 	"encoding/json"
@@ -76,18 +76,18 @@ func(m *TobiBank) Payout() payload.WalletPayoutResponse{
 }
 
 
-func main() {
-	m := &TobiBank{}
-	m.GetBanks()
-}
+// func main() {
+// 	m := &TobiBank{}
+// 	m.GetBanks()
+// }
 // func(m *TobiBank) Payout() string{
 // 	return "my head oo"
 // }
 
 // git commit -a -m "my new version"
 // git push
-// git tag v1.1.7
-// git push -q origin v1.1.7
+// git tag v1.1.8
+// git push -q origin v1.1.8
 
 
 // creating v2
